@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="CACCCheckIn.Modules.Admin.Views.AttendanceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CACCCheckIn.Modules.Admin.Views"
+    xmlns:cal="http://www.codeplex.com/prism"    
+    xmlns:process="clr-namespace:Yaakov.Controls;assembly=Yaakov.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:infrastructure="clr-namespace:Infrastructure;assembly=Infrastructure"
+    Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Infrastructure;component/Styles/styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <process:ProcessingContentControl Name="processingControl" IsContentProcessing="False">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            CornerRadius="4,4,4,4" BorderBrush="#B19F55" BorderThickness="2,2,2,2"
+            Margin="10" Padding="5">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA8B88C" Offset="0.500"/>
+                    <GradientStop Color="#FF505742" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Attendance Administration" FontWeight="Bold"
+                           Foreground="#FF604058" FontSize="18" VerticalAlignment="Top"
+                           TextAlignment="Center" />
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Foreground="#677C44" FontSize="12" VerticalAlignment="Center"
+                           Text="View and delete attendance records. Reprint name tags. (Last 180 days of history)"
+                           TextAlignment="Center" TextWrapping="Wrap" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Department:" FontWeight="Bold"
+                           Foreground="#FF604058" FontSize="14" VerticalAlignment="Center"
+                           TextAlignment="Center" Margin="5" />
+                <ComboBox x:Name="DepartmentsComboBox" Grid.Row="2" Grid.Column="1"
+                          SelectionChanged="DepartmentsComboBox_SelectionChanged"
+                          DisplayMemberPath="Name" Margin="5" FontSize="14" 
+                          IsSynchronizedWithCurrentItem="True" IsReadOnly="True" />
+                <DataGrid Grid.Row="3" Grid.ColumnSpan="2" x:Name="AttendanceDataGrid" ItemsSource="{Binding}"
+                                  IsSynchronizedWithCurrentItem="True" FontSize="14" CanUserReorderColumns="False"
+                                  IsReadOnly="False" AutoGenerateColumns="False" AlternationCount="2"
+                                  AlternatingRowBackground="#FFF3ECCF" CanUserResizeRows="False"
+                                  GridLinesVisibility="None" RowHeaderWidth="20" CanUserAddRows="False"
+                                  CanUserDeleteRows="True" IsTabStop="True" BorderBrush="#B19F55" Margin="5" 
+                                  BorderThickness="2" SelectionMode="Single"
+                                  BeginningEdit="AttendanceDataGrid_BeginningEdit">
+                    <DataGrid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF3ECCF" Offset="0.156"/>
+                            <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Date, StringFormat=d}" Header="Date"
+                                                    MinWidth="50" Width=".15*" MaxWidth="250" />
+                        <DataGridTextColumn Binding="{Binding Path=FirstName}" Header="First Name"
+                                                    MinWidth="50" Width=".2*" MaxWidth="250" />
+                        <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Last Name"
+                                                    MinWidth="50" Width=".2*" MaxWidth="250" />
+                        <DataGridTextColumn Binding="{Binding Path=ClassName}" Header="Class"
+                                                    MinWidth="50" Width=".3*" MaxWidth="250" />
+                        <DataGridTextColumn Binding="{Binding Path=SecurityCode}" Header="Security Code"
+                                                    MinWidth="50" Width=".15*" MaxWidth="250" CanUserSort="False" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Border Grid.Row="4" Grid.ColumnSpan="2" x:Name="ErrorDetailView"
+                    CornerRadius="4,4,4,4" BorderBrush="Red" BorderThickness="2,2,2,2"
+                    Margin="10" Padding="2" MinHeight="100" MaxHeight="250" Visibility="Collapsed" Background="#FFF3ECCF">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Style="{StaticResource ErrorImageStyle}" />
+                        <TextBlock Name="ErrorText" Grid.Column="1" TextWrapping="Wrap" Foreground="Black" FontSize="10" Margin="2" />
+                        <Button Grid.Column="2" Name="ErrorDetailCloseButton" Content="X" SnapsToDevicePixels="False"
+                                ToolTip="Click to close error details" Width="15" Height="Auto"
+                                VerticalContentAlignment="Center" VerticalAlignment="Top" 
+                                HorizontalAlignment="Right" Click="ErrorDetailCloseButton_Click" />
+                    </Grid>
+                </Border>
+                <UniformGrid Grid.Row="5" Grid.ColumnSpan="2" Columns="0" IsEnabled="True" Margin="5,10,5,10" Rows="1">
+                    <Button x:Name="ReprintNameTagLabelButton"
+                            Style="{StaticResource FunctionsButtonRegularFontSizeNoFocus}"
+                            IsDefault="False" MinWidth="100" MinHeight="50"
+                            MaxWidth="300" Click="ReprintNameTagLabelButton_Click"
+                            IsEnabled="{Binding ElementName=AttendanceDataGrid, Path=HasItems}"
+                            Content="Reprint Name Tag Label" />
+                </UniformGrid>
+            </Grid>
+        </Border>
+    </process:ProcessingContentControl>
+</UserControl>

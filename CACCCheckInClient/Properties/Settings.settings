@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CACCCheckInClient.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WindowState" Type="System.Windows.WindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="Location" Type="System.Windows.Rect" Scope="User">
+      <Value Profile="(Default)">0,0,0,0</Value>
+    </Setting>
+    <Setting Name="PrinterType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Seiko</Value>
+    </Setting>
+    <Setting Name="PrinterName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Smart Label Printer 450</Value>
+    </Setting>
+    <Setting Name="LabelTemplateFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CACC-Name Tag.LWL</Value>
+    </Setting>
+    <Setting Name="TargetDepartment" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Children</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

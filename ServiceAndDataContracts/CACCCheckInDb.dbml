@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="CACCCheckIn" EntityNamespace="CACCCheckInDb" ContextNamespace="CACCCheckInDb" Class="CACCCheckInDbDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=CACCCheckIn;Integrated Security=True;MultipleActiveResultSets=True;Network Library=dbmssocn" SettingsObjectName="ServiceAndDataContracts.Properties.Settings" SettingsPropertyName="CACCCheckInConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ClassRole" Member="ClassRoles">
+    <Type Name="ClassRole">
+      <Column Name="Role" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="ClassRole_ClassMember" Member="ClassMembers" ThisKey="Role" OtherKey="ClassRole" Type="ClassMember" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Department" Member="Departments">
+    <Type Name="Department">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="RowTimestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Association Name="Department_Class" Member="Classes" ThisKey="Id" OtherKey="DeptId" Type="Class" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FamilyRole" Member="FamilyRoles">
+    <Type Name="FamilyRole">
+      <Column Name="Role" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="FamilyRole_Person" Member="Persons" ThisKey="Role" OtherKey="FamilyRole" Type="Person" />
+    </Type>
+  </Table>
+  <Table Name="dbo.People" Member="Persons">
+    <Type Name="Person">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FamilyId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="SpecialConditions" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FamilyRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RowTimestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Association Name="Person_Attendance" Member="Attendances" ThisKey="Id" OtherKey="PersonId" Type="Attendance" />
+      <Association Name="Person_ClassMember" Member="ClassMembers" ThisKey="Id" OtherKey="PersonId" Type="ClassMember" />
+      <Association Name="FamilyRole_Person" Member="FamilyRole1" AccessModifier="Internal" ThisKey="FamilyRole" OtherKey="Role" Type="FamilyRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Attendance" Member="Attendances">
+    <Type Name="Attendance">
+      <Column Name="Date" Type="System.DateTime" DbType="SmallDateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PersonId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClassId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SecurityCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RowTimestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Association Name="Person_Attendance" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="Class_Attendance" Member="Class" ThisKey="ClassId" OtherKey="Id" Type="Class" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PeopleWithDepartmentAndClassView" Member="PeopleWithDepartmentAndClassViews">
+    <Type Name="PeopleWithDepartmentAndClassView">
+      <Column Name="DepartmentId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClassId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ClassName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClassRole" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PersonId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SpecialConditions" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FamilyId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FamilyRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClassMember" Member="ClassMembers">
+    <Type Name="ClassMember">
+      <Column Name="ClassId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PersonId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClassRole" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RowTimestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Association Name="ClassRole_ClassMember" Member="ClassRole1" ThisKey="ClassRole" OtherKey="Role" Type="ClassRole" IsForeignKey="true" />
+      <Association Name="Person_ClassMember" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="Class_ClassMember" Member="Class" ThisKey="ClassId" OtherKey="Id" Type="Class" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Class" Member="Classes">
+    <Type Name="Class">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="DeptId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="RowTimestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" UpdateCheck="Always" IsVersion="true" />
+      <Association Name="Class_Attendance" Member="Attendances" ThisKey="Id" OtherKey="ClassId" Type="Attendance" />
+      <Association Name="Class_ClassMember" Member="ClassMembers" ThisKey="Id" OtherKey="ClassId" Type="ClassMember" />
+      <Association Name="Department_Class" Member="Department" ThisKey="DeptId" OtherKey="Id" Type="Department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SecurityCode" Member="SecurityCodes">
+    <Type Name="SecurityCodes">
+      <Column Name="GenerationDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SecurityCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AttendanceWithDetail" Member="AttendanceWithDetails">
+    <Type Name="AttendanceWithDetail">
+      <Column Name="Date" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PersonId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SpecialConditions" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FamilyId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ClassId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ClassName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DeptId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DeptName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClassRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ResetSecurityCode" Method="ResetSecurityCode">
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

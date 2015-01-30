@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.375" name="CACCCheckInDb">
+  <DataContextMoniker Name="/CACCCheckInDbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bef451c2-2874-4c13-8842-caaaf52c8da7" absoluteBounds="3.5, 7.125, 2, 0.93180582682291657">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/ClassRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba5b51d1-a2ff-4b00-9ed0-3da6256630a9" absoluteBounds="3.5149999999999997, 7.585, 1.9700000000000002, 0.37180582682291663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e010d98-54ed-4bea-a225-597fcf293863" absoluteBounds="0.75, 6, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/Department" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc8491dc-7c80-40af-bfcc-41687f003b1a" absoluteBounds="0.76499999999999968, 6.46, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5763078-cbb7-498b-9c05-8091f2b9bbd8" absoluteBounds="0.75, 4.125, 2, 0.93180582682291657">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/FamilyRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a5fd931f-d406-453e-9a7e-aa06b73a0ad1" absoluteBounds="0.76499999999999968, 4.585, 1.9700000000000002, 0.37180582682291663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c25507b-8c2b-40b6-8ff7-d43ebc357723" absoluteBounds="3.5, 3.625, 2, 2.0822371419270826">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/Person" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d1acc58-7270-4100-9f9d-20cd265479ec" absoluteBounds="3.515, 4.085, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fad33956-d054-4db3-8a4c-1dd83d0960ed" absoluteBounds="6.25, 0.75, 2, 1.5891951497395831">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/Attendance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="591782b5-92ee-47b7-bad5-f50b1cf59735" absoluteBounds="6.2650000000000006, 1.21, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.59404622023304); (3.04166916666667 : 4.59404622023304 : JumpStart); (3.20833583333333 : 4.59404622023304 : JumpEnd); (3.5 : 4.59404622023304)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CACCCheckInDbDataContext/FamilyRole/FamilyRole_Person" />
+      <nodes>
+        <classShapeMoniker Id="b5763078-cbb7-498b-9c05-8091f2b9bbd8" />
+        <classShapeMoniker Id="0c25507b-8c2b-40b6-8ff7-d43ebc357723" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 3.625); (5.625 : 3.5); (7.25 : 3.5); (7.25 : 2.52240232139826)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CACCCheckInDbDataContext/Person/Person_Attendance" />
+      <nodes>
+        <classShapeMoniker Id="0c25507b-8c2b-40b6-8ff7-d43ebc357723" />
+        <classShapeMoniker Id="fad33956-d054-4db3-8a4c-1dd83d0960ed" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9fce11b7-9417-4fe0-9935-d2be9e4afa6c" absoluteBounds="6.75, 6.375, 2.5, 2.7396264648437505">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/PeopleWithDepartmentAndClassView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40c7e4c7-930b-42b7-b658-d307127b2dda" absoluteBounds="6.765, 6.835, 2.4699999999999998, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e23ebe34-2c69-4100-b2c5-6cc9e11b04ec" absoluteBounds="6.25, 3.875, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/ClassMember" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d43482a-057f-4804-94be-2bae67e9bfbf" absoluteBounds="6.265, 4.335, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 7.125); (5.875 : 6.75); (5.875 : 5.68867836902539); (6.25 : 5.31367836902539)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CACCCheckInDbDataContext/ClassRole/ClassRole_ClassMember" />
+      <nodes>
+        <classShapeMoniker Id="bef451c2-2874-4c13-8842-caaaf52c8da7" />
+        <classShapeMoniker Id="e23ebe34-2c69-4100-b2c5-6cc9e11b04ec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.17216959225635); (6.25 : 4.17216959225635)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CACCCheckInDbDataContext/Person/Person_ClassMember" />
+      <nodes>
+        <classShapeMoniker Id="0c25507b-8c2b-40b6-8ff7-d43ebc357723" />
+        <classShapeMoniker Id="e23ebe34-2c69-4100-b2c5-6cc9e11b04ec" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c693974d-33b6-4087-b83f-af4641d6ad2e" absoluteBounds="2.625, 1.375, 2, 1.5891951497395831">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/Class" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a12086dc-f191-49f1-8ec5-487096c56b1f" absoluteBounds="2.64, 1.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.625 : 2.09492836902539); (6.25 : 2.09492836902539)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CACCCheckInDbDataContext/Class/Class_Attendance" />
+      <nodes>
+        <classShapeMoniker Id="c693974d-33b6-4087-b83f-af4641d6ad2e" />
+        <classShapeMoniker Id="fad33956-d054-4db3-8a4c-1dd83d0960ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.625 : 2.97930431417704); (5.00123603103478 : 3.35554034521182); (7.25 : 3.35554034521182); (7.25 : 3.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CACCCheckInDbDataContext/Class/Class_ClassMember" />
+      <nodes>
+        <classShapeMoniker Id="c693974d-33b6-4087-b83f-af4641d6ad2e" />
+        <classShapeMoniker Id="e23ebe34-2c69-4100-b2c5-6cc9e11b04ec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.53125); (3.1250025 : 6.53125); (3.1250025 : 2.98054034521182)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CACCCheckInDbDataContext/Department/Department_Class" />
+      <nodes>
+        <classShapeMoniker Id="0e010d98-54ed-4bea-a225-597fcf293863" />
+        <classShapeMoniker Id="c693974d-33b6-4087-b83f-af4641d6ad2e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="32040869-f935-41fd-8a6e-393ebf9eda92" absoluteBounds="0.75, 7.625, 2, 1.0961531575520844">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/SecurityCodes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86d8222b-e3ab-42e2-854d-e5a0faa744fc" absoluteBounds="0.76500000000000012, 8.085, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9acda4d-c9ac-45b0-9182-8c5815bf87af" absoluteBounds="0.5, 0.5, 2, 2.9039737955729166">
+      <DataClassMoniker Name="/CACCCheckInDbDataContext/AttendanceWithDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d0be0956-969e-42c5-b55c-25664f4629df" absoluteBounds="0.515, 0.96, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

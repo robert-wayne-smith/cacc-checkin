@@ -1,0 +1,34 @@
+﻿<Window x:Class="CACCCheckInClient.AboutBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="About Church at Canyon Creek Checkin" WindowStartupLocation="CenterOwner"
+    WindowStyle="ToolWindow" ShowInTaskbar="True" ResizeMode="NoResize"
+    SizeToContent="Height" Width="350" Loaded="Window_Loaded" Background="#FFA8B88C">
+    <Grid>
+        <Border Margin="10,10,10,10" Grid.Row="0" CornerRadius="4,4,4,4" BorderBrush="#B19F55"
+                BorderThickness="2,2,2,2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF3ECCF" Offset="0"/>
+                    <GradientStop Color="#FFAB9758" Offset="1"/>
+                    <GradientStop Color="#FFE5D8A4" Offset="0.205"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <Image HorizontalAlignment="Center" Margin="5" Width="35"
+                    Stretch="Uniform" Source="TCACC_logo_crossOnly2.JPG">
+                    <Image.BitmapEffect>
+                        <OuterGlowBitmapEffect />
+                    </Image.BitmapEffect>
+                </Image>
+                <Label Content="Church at Canyon Creek Checkin Application"
+                       FontWeight="Bold" HorizontalContentAlignment="Center" />
+                <Label Content="Written by Rob Smith"
+                       HorizontalContentAlignment="Center" />
+                <Label x:Name="VersionLabel" HorizontalContentAlignment="Center" />
+                <Button x:Name="OkButton" Click="OkButton_Click" IsDefault="True"
+                        HorizontalAlignment="Center" Margin="0,5" Padding="5,0">OK</Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

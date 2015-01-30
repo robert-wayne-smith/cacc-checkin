@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{49123757-EE9B-481D-9791-2093A315573C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CACCCheckIn.Modules.Admin</RootNamespace>
+    <AssemblyName>CACCCheckIn.Modules.Admin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\Library\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions">
+      <HintPath>..\Library\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="ReachFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminModule.cs" />
+    <Compile Include="DataGridHelpers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AttendanceView\AttendancePresenter.cs" />
+    <Compile Include="Views\AttendanceView\AttendanceView.xaml.cs">
+      <DependentUpon>AttendanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AttendanceView\IAttendanceView.cs" />
+    <Compile Include="Views\ChildrenAdminView\ChildrenAdminPresenter.cs" />
+    <Compile Include="Views\ChildrenAdminView\ChildrenAdminView.xaml.cs">
+      <DependentUpon>ChildrenAdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChildrenAdminView\IChildrenAdminView.cs" />
+    <Compile Include="Views\ClassesView\ClassesPresenter.cs" />
+    <Compile Include="Views\ClassesView\ClassesView.xaml.cs">
+      <DependentUpon>ClassesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassesView\IClassesView.cs" />
+    <Compile Include="Views\ClassMovementView\ClassMovementPresenter.cs" />
+    <Compile Include="Views\ClassMovementView\ClassMovementView.xaml.cs">
+      <DependentUpon>ClassMovementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassMovementView\IClassMovementView.cs" />
+    <Compile Include="Views\DepartmentsView\DepartmentsPresenter.cs" />
+    <Compile Include="Views\DepartmentsView\DepartmentsView.xaml.cs">
+      <DependentUpon>DepartmentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartmentsView\IDepartmentsView.cs" />
+    <Compile Include="Views\FamilyQuickEntryView\Family.cs" />
+    <Compile Include="Views\FamilyQuickEntryView\FamilyQuickEntryPresenter.cs" />
+    <Compile Include="Views\FamilyQuickEntryView\FamilyQuickEntryView.xaml.cs">
+      <DependentUpon>FamilyQuickEntryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FamilyQuickEntryView\IFamilyQuickEntryView.cs" />
+    <Compile Include="Views\PersonsView\PersonsPresenter.cs" />
+    <Compile Include="Views\PersonsView\IPersonsView.cs" />
+    <Compile Include="Views\PersonsView\PersonsView.xaml.cs">
+      <DependentUpon>PersonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportsView\ClassAttendanceDuringDateRangeReportView.xaml.cs">
+      <DependentUpon>ClassAttendanceDuringDateRangeReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportsView\ClassAttendanceCountDuringDateRangeReportView.xaml.cs">
+      <DependentUpon>ClassAttendanceCountDuringDateRangeReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportsView\AttendanceRecordForPersonReportView.xaml.cs">
+      <DependentUpon>AttendanceRecordForPersonReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportsView\FlowDocumentHelpers.cs" />
+    <Compile Include="Views\ReportsView\IReportPresenterView.cs" />
+    <Compile Include="Views\ReportsView\IReportsView.cs" />
+    <Compile Include="Views\ReportsView\ReportsPresenter.cs" />
+    <Compile Include="Views\ReportsView\ReportsView.xaml.cs">
+      <DependentUpon>ReportsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TeachersView\ITeachersView.cs" />
+    <Compile Include="Views\TeachersView\TeachersPresenter.cs" />
+    <Compile Include="Views\TeachersView\TeachersView.xaml.cs">
+      <DependentUpon>TeachersView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{995E4D58-1157-45F8-ABB3-5EBC614F42DA}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessingContentControl\Yaakov.Controls.csproj">
+      <Project>{E1065E7D-1D68-4921-9813-44A3B982778D}</Project>
+      <Name>Yaakov.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceAndDataContracts\ServiceAndDataContracts.csproj">
+      <Project>{C702DEC6-D1DF-423C-93BF-708552A31A13}</Project>
+      <Name>ServiceAndDataContracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\AttendanceView\AttendanceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ChildrenAdminView\ChildrenAdminView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ClassesView\ClassesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ClassMovementView\ClassMovementView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DepartmentsView\DepartmentsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FamilyQuickEntryView\FamilyQuickEntryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonsView\PersonsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReportsView\ClassAttendanceDuringDateRangeReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReportsView\ClassAttendanceCountDuringDateRangeReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReportsView\AttendanceRecordForPersonReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReportsView\ReportsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TeachersView\TeachersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

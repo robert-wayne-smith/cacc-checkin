@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="CACCCheckIn.Modules.Admin.Views.ClassesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CACCCheckIn.Modules.Admin.Views"
+    xmlns:cal="http://www.codeplex.com/prism"
+    xmlns:process="clr-namespace:Yaakov.Controls;assembly=Yaakov.Controls"    
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:infrastructure="clr-namespace:Infrastructure;assembly=Infrastructure"
+    Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded"> 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Infrastructure;component/Styles/styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>            
+            <!--WPF DataGrid Default Row Style-->
+            <Style TargetType="{x:Type DataGridRow}">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ClassesView}}, Path=IsInEditMode}" Value="True" />
+                            <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsEditing}" Value="False" />
+                        </MultiDataTrigger.Conditions>
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="Foreground" Value="LightGray"/>
+                    </MultiDataTrigger>
+                    <Trigger Property="IsEditing" Value="true">
+                        <Setter Property="BorderBrush" Value="#FF604058"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <process:ProcessingContentControl Name="processingControl" IsContentProcessing="False">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            CornerRadius="4,4,4,4" BorderBrush="#B19F55" BorderThickness="2,2,2,2"
+            Margin="10" Padding="5">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA8B88C" Offset="0.500"/>
+                    <GradientStop Color="#FF505742" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Classes Administration" FontWeight="Bold"
+                           Foreground="#FF604058" FontSize="18" VerticalAlignment="Top"
+                           TextAlignment="Center" />
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Foreground="#677C44" FontSize="12" VerticalAlignment="Center"
+                           Text="View, add, update and delete classes."
+                           TextAlignment="Center" TextWrapping="Wrap" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Department:" FontWeight="Bold"
+                           Foreground="#FF604058" FontSize="14" VerticalAlignment="Center"
+                           TextAlignment="Center" Margin="5" />
+                <ComboBox x:Name="DepartmentsComboBox" Grid.Row="2" Grid.Column="1"
+                          SelectionChanged="DepartmentsComboBox_SelectionChanged"
+                          DisplayMemberPath="Name" Margin="5" FontSize="14" 
+                          IsSynchronizedWithCurrentItem="True" IsReadOnly="True" />
+                <DataGrid Grid.Row="3" Grid.ColumnSpan="2" x:Name="ClassesDataGrid" ItemsSource="{Binding}"
+                                  IsSynchronizedWithCurrentItem="True" FontSize="14" CanUserReorderColumns="False"
+                                  IsReadOnly="False" AutoGenerateColumns="False" AlternationCount="2"
+                                  AlternatingRowBackground="#FFF3ECCF" CanUserResizeRows="False"
+                                  GridLinesVisibility="None" RowHeaderWidth="20" CanUserAddRows="True"
+                                  CanUserDeleteRows="True" IsTabStop="True" BorderBrush="#B19F55" Margin="5" 
+                                  BorderThickness="2" SelectionMode="Single" EnableRowVirtualization="False"
+                                  LoadingRow="ClassesDataGrid_LoadingRow"
+                                  RowEditEnding="ClassesDataGrid_RowEditEnding"
+                                  BeginningEdit="ClassesDataGrid_BeginningEdit"
+                                  PreviewKeyDown="ClassesDataGrid_PreviewKeyDown">
+                    <DataGrid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF3ECCF" Offset="0.156"/>
+                            <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DataGrid.Background>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name"
+                                                    MinWidth="50" Width=".3*" MaxWidth="250" />
+                        <DataGridTextColumn Binding="{Binding Path=Description}" Header="Description"
+                                                    MinWidth="50" Width=".7*" MaxWidth="550" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Border Grid.Row="4" Grid.ColumnSpan="2" x:Name="ErrorDetailView"
+                    CornerRadius="4,4,4,4" BorderBrush="Red" BorderThickness="2,2,2,2"
+                    Margin="10" Padding="2" MinHeight="100" MaxHeight="250" Visibility="Collapsed" Background="#FFF3ECCF">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Style="{StaticResource ErrorImageStyle}" />
+                        <TextBlock Name="ErrorText" Grid.Column="1" TextWrapping="Wrap" Foreground="Black" FontSize="10" Margin="2" />
+                        <Button Grid.Column="2" Name="ErrorDetailCloseButton" Content="X" SnapsToDevicePixels="False"
+                                ToolTip="Click to close error details" Width="15" Height="Auto"
+                                VerticalContentAlignment="Center" VerticalAlignment="Top" 
+                                HorizontalAlignment="Right" Click="ErrorDetailCloseButton_Click" />
+                    </Grid>
+                </Border>            
+            </Grid>
+        </Border>
+    </process:ProcessingContentControl>
+</UserControl>
