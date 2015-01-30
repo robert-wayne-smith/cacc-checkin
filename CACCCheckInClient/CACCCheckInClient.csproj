@@ -41,7 +41,7 @@
     <InstallUrl>\\192.168.1.2\CACCCheckInClient\</InstallUrl>
     <ProductName>CACC Checkin Client</ProductName>
     <PublisherName>Church At Canyon Creek</PublisherName>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
