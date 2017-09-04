@@ -143,116 +143,116 @@ namespace CACCCheckIn.Printing.NameBadgePrinter
         // 
         
         //SLPSDK_API BOOL	    __stdcall SlpOpenPrinter(LPSTR szPrinterName, int nID, BOOL fPortrait);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpOpenPrinter", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpOpenPrinter@12", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern int SlpOpenPrinter(string strPrinterName, int nID, int fPortrait);
 
         //SLPSDK_API HFONT    __stdcall SlpCreateFont(LPSTR wszName, int nPoints, int nAttributes);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpCreateFont", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpCreateFont@12", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpCreateFont(string lpName, int nPoints, int nAttributes);
 
         //SLPSDK_API int      __stdcall SlpGetErrorCode(void);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetErrorCode", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetErrorCode@0", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpGetErrorCode();
 
         //SLPSDK_API int    __stdcall SlpGetErrorString(LPSTR wszText, int nMaxLength);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetErrorString", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetErrorString@8", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern int SlpGetErrorString(string lpText, int nMaxLength);
         
         //SLPSDK_API int      __stdcall SlpDeleteFont(HFONT hFont);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpDeleteFont", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpDeleteFont@4", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpDeleteFont(int iFont);
 
         //SLPSDK_API int	    __stdcall SlpGetTextWidth(HFONT hFont, LPSTR wszText);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetTextWidth", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetTextWidth@8", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpGetTextWidth(int iFont, string lpText);
 
         //SLPSDK_API int	    __stdcall SlpGetTextHeight(HFONT hFont, LPSTR wszText);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetTextHeight", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetTextHeight@8", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpGetTextHeight(int iFont, string lpText);
 
         //SLPSDK_API int      __stdcall SlpGetLabelHeight(void);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x64", EntryPoint = "SlpGetLabelHeight", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x64", EntryPoint = "_SlpGetLabelHeight@0", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpGetLabelHeight();
 
         //SLPSDK_API int      __stdcall SlpGetLabelWidth(void);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetLabelWidth", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetLabelWidth@0", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpGetLabelWidth();
 
         //SLPSDK_API BOOL	    __stdcall SlpStartLabel();
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpStartLabel", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpStartLabel@0", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern int SlpStartLabel();
 
         //SLPSDK_API BOOL     __stdcall SlpEndLabel();
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpEndLabel", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpEndLabel@0", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern int SlpEndLabel();
 
         //SLPSDK_API int      __stdcall SlpSetRotation(int nAngle);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpSetRotation", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpSetRotation@4", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpSetRotation(int nAngle);
 
         //SLPSDK_API BOOL	    __stdcall SlpDrawTextXY(int x, int y, HFONT hFont, LPSTR wszText);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpDrawTextXY", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpDrawTextXY@16", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpDrawTextXY(int x, int y, int iFont, string lpText);
 
         //SLPSDK_API void     __stdcall SlpClosePrinter(void);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpClosePrinter", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpClosePrinter@0", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpClosePrinter();
 
         //SLPSDK_API BOOL     __stdcall SlpDrawRectangle(int x, int y, int width, int height, int thickness);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpDrawRectangle", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpDrawRectangle@20", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpDrawRectangle(int x, int y, int nWidth, int nHeight, int nThickness);
 
         //SLPSDK_API BOOL     __stdcall SlpDrawLine(int xStart, int yStart, int xEnd, int yEnd, int thickness);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpDrawLine", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpDrawLine@20", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpDrawLine(int xStart, int yStart, int xEnd, int yEnd, int nThickness);
 
         //SLPSDK_API BOOL     __stdcall SlpDrawPicture(int nLeft, int nTop, int nRight, int nBottom,
         //                                      LPSTR wszPath);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpDrawPicture", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpDrawPicture@20", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpDrawPicture(int nLeft, int nTop, int nRight, int nBottom, string strPath);
 
         //SLPSDK_API BOOL     __stdcall SlpDrawBarCode(int nLeft, int nTop, int nRight, int nBottom,
         //                                      LPSTR wszText);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpDrawBarCode", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpDrawBarCode@20", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpDrawBarCode(int nLeft, int nTop, int nRight, int nBottom, string lpText);
 
         //SLPSDK_API BOOL     __stdcall SlpSetBarCodeStyle(int nSymbology, int nRatio, int nMode, 
         //                                          int nSecurity, BOOL bReadableText,
         //                                          int nFontHeight, int nFontAttributes, 
         //                                          LPSTR wszFaceName);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpSetBarCodeStyle", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpSetBarCodeStyle@32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpSetBarCodeStyle(int nSymbology, int nRatio, int nMode, int nSecurity, int bReadableText, int nFontHeight, int nFontAttributes, string strFaceName);
 
         //SLPSDK_API int    __stdcall SlpGetBarCodeWidth(int nLeft, int nTop, int nRight, int nBottom, LPSTR lpText);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetBarCodeWidth", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetBarCodeWidth@20", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern int SlpGetBarCodeWidth(int nLeft, int nTop, int nRight, int nBottom, string lpText);
 
         //SLPSDK_API int    __stdcall SlpGetVersion(LPSTR wszVersion);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetVersion", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetVersion@4", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern int SlpGetVersion(string lpText);
 
         //SLPSDK_API int      __stdcall SlpFindPrinters(BOOL bAllPrinters);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpFindPrinters", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpFindPrinters@4", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern int SlpFindPrinters(bool bAllPrinters);
 
         //SLPSDK_API int      __stdcall SlpGetPrinterDPI(void);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetPrinterDPI", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetPrinterDPI@0", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern int SlpGetPrinterDPI();
 
         //SLPSDK_API int    __stdcall SlpGetPrinterName(int nIndex, LPSTR wszPrinterName, int nMaxLength);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpGetPrinterName", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpGetPrinterName@12", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern int SlpGetPrinterName(int nIndex, string strPrinterName, int nMaxChars);
 
         //SLPSDK_API void     __stdcall SlpDebugMode(DWORD dwMode);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpDebugMode", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpDebugMode@4", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpDebugMode(int nMode);
 
         //SLPSDK_API void     __stdcall SlpCopyLabelToClipboard(void);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpCopyLabelToClipboard", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpCopyLabelToClipboard@0", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
 	    public static extern void SlpCopyLabelToClipboard();
 
         //SLPSDK_API void     __stdcall SlpComment(LPSTR wszComment);
-        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "SlpComment", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        [System.Runtime.InteropServices.DllImport("SlpApi7x32", EntryPoint = "_SlpComment@4", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         public static extern void SlpComment(string wszComment);
 
         public static string GetErrorCodeDescription()
