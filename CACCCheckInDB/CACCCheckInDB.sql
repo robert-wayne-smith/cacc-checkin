@@ -1,29 +1,29 @@
-USE [master]
-GO
+--USE [master]
+--GO
 
 /****** Object:  Database [CACCCheckIn]    Script Date: 03/16/2009 20:02:31 ******/
-IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'CACCCheckIn')
+--IF  EXISTS (SELECT name FROM sys.databases WHERE name = N'CACCCheckIn')
 --DROP DATABASE [CACCCheckIn]
-GO
+--GO
 
 USE [master]
 GO
 
 /****** Object:  Database [CACCCheckIn]    Script Date: 03/16/2009 20:02:31 ******/
-CREATE DATABASE [CACCCheckIn] ON  PRIMARY 
-( NAME = N'cacccheckin', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\CACCCheckIn.mdf' , SIZE = 3904KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+CREATE DATABASE [CACCCheckIn] ON  PRIMARY  
+( NAME = N'cacccheckin', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.SQLEXPRESS\MSSQL\DATA\CACCCheckIn.mdf' , SIZE = 3904KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
-( NAME = N'cacccheckin_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\CACCCheckIn_1.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+( NAME = N'cacccheckin_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.SQLEXPRESS\MSSQL\DATA\CACCCheckIn_1.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
 
-ALTER DATABASE [CACCCheckIn] SET COMPATIBILITY_LEVEL = 90
-GO
+--ALTER DATABASE [CACCCheckIn] SET COMPATIBILITY_LEVEL = 90
+--GO
 
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [CACCCheckIn].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
+--IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+--begin
+--EXEC [CACCCheckIn].[dbo].[sp_fulltext_database] @action = 'enable'
+--end
+--GO
 
 ALTER DATABASE [CACCCheckIn] SET ANSI_NULL_DEFAULT OFF 
 GO

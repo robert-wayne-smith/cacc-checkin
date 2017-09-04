@@ -42,7 +42,7 @@
     <ProductName>CACC Checkin Client</ProductName>
     <PublisherName>Church At Canyon Creek</PublisherName>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -196,7 +196,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="CACC-Name Tag.LWL">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -258,6 +260,10 @@
       <Project>{01C189E1-930F-41B4-B50C-691AF77240DC}</Project>
       <Name>LabelCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LadiesBibleStudyModule\CACCCheckIn.Modules.LadiesBibleStudy.csproj">
+      <Project>{d38e8261-841e-4507-b096-5678bd092cd6}</Project>
+      <Name>CACCCheckIn.Modules.LadiesBibleStudy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MOPSModule\CACCCheckIn.Modules.MOPS.csproj">
       <Project>{CD8DA47D-FF73-4E5D-AF30-3C300A60401B}</Project>
       <Name>CACCCheckIn.Modules.MOPS</Name>
@@ -290,7 +296,37 @@
     <Resource Include="TCACC_logo_crossOnly2.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PublishFile Include="CACCCheckIn.Modules.Admin">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
     <PublishFile Include="CACCCheckIn.Modules.Children">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CACCCheckIn.Modules.LadiesBibleStudy">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CACCCheckIn.Modules.MOPS">
       <Visible>False</Visible>
       <Group>
       </Group>

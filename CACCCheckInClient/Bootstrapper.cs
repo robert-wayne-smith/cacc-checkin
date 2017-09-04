@@ -8,6 +8,7 @@ namespace CACCCheckInClient
     using CACCCheckIn.Modules.Children;
     using CACCCheckIn.Modules.Preschool;
     using CACCCheckIn.Modules.MOPS;
+    using CACCCheckIn.Modules.LadiesBibleStudy;
     using CACCCheckIn.Modules.Admin;
     using Microsoft.Practices.Unity;
     using ServiceAndDataContracts;
@@ -44,6 +45,7 @@ namespace CACCCheckInClient
                  .AddModule(typeof(ChildrenModule))
                  .AddModule(typeof(PreschoolModule))
                  .AddModule(typeof(MOPSModule))
+                 .AddModule(typeof(LadiesBibleStudyModule))
                  .AddModule(typeof(AdminModule));
         }
         

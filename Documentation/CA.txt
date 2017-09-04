@@ -1,0 +1,12 @@
+http://www.digitallycreated.net/Blog/38/using-makecert-to-create-certificates-for-development
+
+
+C:\Users\rsmit\Documents\CertificateAuthority
+
+makecert -n "CN=D55X16C1" -cy authority -a sha1 -sv "D55X16C1 Private Key.pvk" -r "D55X16C1.cer"
+MyOwnPrivateCA!
+
+makecert -n "CN=D55X16C1.AUSTIN.RR.COM" -ic "D55X16C1.cer" -iv "D55X16C1 Private Key.pvk" -a sha1 -sky exchange -pe -sv "D55X16C1.AUSTIN.RR.COM Private Key.pvk" "D55X16C1.AUSTIN.RR.COM.cer"
+MyOwnPrivateCA!
+
+pvk2pfx -pvk "D55X16C1.AUSTIN.RR.COM Private Key.pvk" -spc "D55X16C1.AUSTIN.RR.COM.cer" -pfx "D55X16C1.AUSTIN.RR.COM.pfx" -pi MyOwnPrivateCA!

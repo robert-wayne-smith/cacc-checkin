@@ -234,6 +234,11 @@ namespace CACCCheckIn.Modules.Admin.Views
                         people = proxy.GetPeopleWithDepartmentAndClassByDepartmentAndClass(
                             Departments.Adult, "MOPS Adults");
                     }
+                    if (targetDepartment.Equals(Departments.LadiesBibleStudy))
+                    {
+                        people = proxy.GetPeopleWithDepartmentAndClassByDepartmentAndClass(
+                            Departments.Adult, "Ladies Bible Study Adults");
+                    }
                     else
                     {
                         people = proxy.GetPeopleWithDepartmentAndClassByDepartmentAndClass(

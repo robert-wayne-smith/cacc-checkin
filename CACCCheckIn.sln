@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCFService", "WCFService", "{2C1C835B-4FC8-443A-9B6F-47D3CD8C33B7}"
 EndProject
@@ -41,6 +41,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CACCCheckIn.Modules.MOPS", "MOPSModule\CACCCheckIn.Modules.MOPS.csproj", "{CD8DA47D-FF73-4E5D-AF30-3C300A60401B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameBadgePrinter", "NameBadgePrinter\NameBadgePrinter.csproj", "{9AD75518-6C9A-4A7F-A5FC-F19F5B0EF1FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CACCCheckIn.Modules.LadiesBibleStudy", "LadiesBibleStudyModule\CACCCheckIn.Modules.LadiesBibleStudy.csproj", "{D38E8261-841E-4507-B096-5678BD092CD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +110,10 @@ Global
 		{9AD75518-6C9A-4A7F-A5FC-F19F5B0EF1FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AD75518-6C9A-4A7F-A5FC-F19F5B0EF1FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AD75518-6C9A-4A7F-A5FC-F19F5B0EF1FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38E8261-841E-4507-B096-5678BD092CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38E8261-841E-4507-B096-5678BD092CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38E8261-841E-4507-B096-5678BD092CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38E8261-841E-4507-B096-5678BD092CD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,5 +130,9 @@ Global
 		{49123757-EE9B-481D-9791-2093A315573C} = {6003A07B-B52F-4114-B41D-40589E20E8DC}
 		{CD8DA47D-FF73-4E5D-AF30-3C300A60401B} = {6003A07B-B52F-4114-B41D-40589E20E8DC}
 		{9AD75518-6C9A-4A7F-A5FC-F19F5B0EF1FE} = {03514F58-6ADF-437D-9CFC-5D7E3D0C0F28}
+		{D38E8261-841E-4507-B096-5678BD092CD6} = {6003A07B-B52F-4114-B41D-40589E20E8DC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9021F7E9-76E7-4352-B64F-A0C79CB0826A}
 	EndGlobalSection
 EndGlobal

@@ -83,8 +83,12 @@ namespace CACCCheckInClient
             {
                 Properties.Settings.Default.PrinterType = CurrentPrinterType.Value.ToString();
             }
-            Properties.Settings.Default.PrinterName = CurrentPrinter.Name;
-            Properties.Settings.Default.LabelTemplateFile = LabelTemplateFile;
+            if (null != CurrentPrinter)
+            {
+                Properties.Settings.Default.PrinterName = CurrentPrinter.Name;
+                Properties.Settings.Default.LabelTemplateFile = LabelTemplateFile;
+            }
+            
             Properties.Settings.Default.TargetDepartment = TargetDepartment;
             Properties.Settings.Default.Save();
             
@@ -129,8 +133,9 @@ namespace CACCCheckInClient
             // Loading up valid values for the DepartmentComboBox
             List<string> departments = new List<string>();
             departments.Add(Infrastructure.Departments.Children);
+            departments.Add(Infrastructure.Departments.LadiesBibleStudy);
             departments.Add(Infrastructure.Departments.MOPS);
-            departments.Add(Infrastructure.Departments.Preschool);
+            departments.Add(Infrastructure.Departments.Preschool);            
             DepartmentComboBox.ItemsSource = departments;
 
             // Setting the current configured value for TargetDepartment
@@ -221,6 +226,10 @@ namespace CACCCheckInClient
             else if (newTargetDepartment.Equals(Departments.MOPS))
             {
                 _eventAggregator.GetEvent<LoadMOPSCheckInViewEvent>().Publish(new EventArgs());
+            }
+            else if (newTargetDepartment.Equals(Departments.LadiesBibleStudy))
+            {
+                _eventAggregator.GetEvent<LoadLadiesBibleStudyCheckInViewEvent>().Publish(new EventArgs());
             }
         }
     }

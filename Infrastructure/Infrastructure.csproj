@@ -87,6 +87,7 @@
     <Compile Include="Converters\FormatConverter.cs" />
     <Compile Include="ClassRoles.cs" />
     <Compile Include="DepartmentChangedEvent.cs" />
+    <Compile Include="LoadLadiesBibleStudyCheckInViewEvent.cs" />
     <Compile Include="LoadMOPSCheckInViewEvent.cs" />
     <Compile Include="Departments.cs" />
     <Compile Include="MaskedTextBox.cs" />
